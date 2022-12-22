@@ -9,4 +9,8 @@ module.exports = function(app){
     //agar terbaca yang mau ditampilkan dari database
     app.route('/show')
         .get(myjson.showproductdata)    
+
+    //tampil data berdasarkan id
+    app.route('/show/:id')
+        .get(myjson.showproductdataid)    
 }

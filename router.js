@@ -5,4 +5,8 @@ module.exports = function(app){
 
     app.route('/')
         .get(myjson.index)
+
+    //agar terbaca yang mau ditampilkan dari database
+    app.route('/show')
+        .get(myjson.showproductdata)    
 }

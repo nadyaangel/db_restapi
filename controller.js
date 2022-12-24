@@ -33,3 +33,39 @@ exports.showproductdataid= function(req, res){
         }
     })
 }
+
+//add data for product
+exports.addproduct = function(req, res){
+    var name = req.body.name;
+    var harga = req.body.harga;
+    var deskripsi = req.body.deskripsi;
+
+    connection.query('INSERT INTO produk (name, harga, deskripsi) VALUES (?,?,?)',
+    [name, harga, deskripsi],
+    function(error, rows, fields){
+        if(error){
+            console.log(error)
+        } else {
+            response.ok("Data is added", res)
+        }
+    })
+}
+
+//update data berdasarkan id 
+exports.changeProduct = function(req,res){
+    var id = req.body.id_product;
+    var name = req.body.name;
+    var harga = req.body.harga;
+    var deskripsi = req.body.deskripsi;
+
+    connection.query('Update mahasiswa SET name=?, harga=?, deskripsi=?' [name, harga, deskripsi],
+        function(error, rows, fields){
+            if(error){
+                console.log(error);
+            }
+            else{
+                response.ok("Data has changed", res)
+            }
+        } 
+    )
+}

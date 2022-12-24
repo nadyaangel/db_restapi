@@ -12,5 +12,13 @@ module.exports = function(app){
 
     //tampil data berdasarkan id
     app.route('/show/:id')
-        .get(myjson.showproductdataid)    
+        .get(myjson.showproductdataid)
+    
+    //tambah data
+    app.route('/add')
+        .post(myjson.addproduct)
+
+    //ubah data berdasarkan id
+    app.route('/change')
+        .put(myjson.changeProduct)
 }

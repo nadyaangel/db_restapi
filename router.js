@@ -21,4 +21,7 @@ module.exports = function(app){
     //ubah data berdasarkan id
     app.route('/change')
         .put(myjson.changeProduct)
+
+    app.route('/delete')
+        .delete(myjson.deleteproduct)
 }

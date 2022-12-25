@@ -58,7 +58,7 @@ exports.changeProduct = function(req,res){
     var harga = req.body.harga;
     var deskripsi = req.body.deskripsi;
 
-    connection.query('Update mahasiswa SET name=?, harga=?, deskripsi=?' [name, harga, deskripsi],
+    connection.query('UPDATE produk SET name=?, harga=?, deskripsi=? WHERE id_product =?', [name, harga, deskripsi, id],
         function(error, rows, fields){
             if(error){
                 console.log(error);
@@ -68,4 +68,22 @@ exports.changeProduct = function(req,res){
             }
         } 
     )
+}
+
+//delete data
+exports.deleteproduct = function(req, res){
+    var id = req.body.id_product;
+    var name = req.body.name;
+    var harga = req.body.harga;
+    var deskripsi = req.body.deskripsi;
+
+    connection.query('DELETE FROM produk WHERE id_product = ?', [id],
+        function (error, rows, fields){
+            if(error){
+                console.log(error)
+            }
+            else {
+                response.ok('Deleted', res)
+            }
+        })
 }
